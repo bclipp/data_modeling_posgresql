@@ -30,8 +30,11 @@ log_data/2018/11/2018-11-13-events.json
 And below is an example of what the data in a log file, 2018-11-12-events.json, looks like.  
 
 ```
-{"artist":"Slipknot","auth":"Logged   In","firstName":"Aiden","gender":"M","itemInSession":0,"lastName":"Ramirez","length":192.57424,"level":"paid","location":"New York-Newark-Jersey City, NY-NJ-PA",  
-"method":"PUT","page":"NextSong","registration":1540283578796.0,"sessionId":19,"song":"Opium Of The People (Album Version)","status":200,"ts":1541639510796,"userAgent":"\"Mozilla\/5.0 (Windows NT 6.1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"","userId":"20"}
+{"artist":"Slipknot","auth":"Logged   In","firstName":"Aiden","gender":"M","itemInSession":0,"lastName":"Ramirez","length":192.57424,"level":"paid",  
+"location":"New York-Newark-Jersey City, NY-NJ-PA",  
+"method":"PUT","page":"NextSong","registration":1540283578796.0,  
+"sessionId":19,"song":"Opium Of The People (Album Version)","status":200,"ts":1541639510796,  
+"userAgent":"\"Mozilla\/5.0 (Windows NT 6.1) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/36.0.1985.143 Safari\/537.36\"","userId":"20"}
 
 ```
 If you would like to look at the JSON data within log_data files, you will need to create a pandas dataframe to read the data. Remember to first import JSON and pandas libraries.
@@ -42,4 +45,4 @@ df = pd.read_json(filepath, lines=True)
 
 For example, ```df = pd.read_json('data/log_data/2018/11/2018-11-01-events.json', lines=True)``` would read the data file 2018-11-01-events.json.
 
-
+### Schema
