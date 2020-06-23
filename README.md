@@ -11,7 +11,7 @@ In this project, you'll apply what you've learned on data modeling with Postgres
 
 # Song Dataset
 
-(Song Data)[https://github.com/bclipp/data_modeling_posgresql/tree/master/data/song_data/A]  
+[Song Data](https://github.com/bclipp/data_modeling_posgresql/tree/master/data/song_data/A)  
 
 The first dataset is a subset of real data from the Million Song Dataset. Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. For example, here are filepaths to two files in this dataset.  
 
