@@ -1,6 +1,6 @@
 def create_song_plays() -> str:
     """
-    Dimension table
+    Fact table
     :return:"""
     return """
     CREATE TABLE IF NOT EXISTS song_plays(
@@ -18,7 +18,7 @@ def create_song_plays() -> str:
 
 def create_users() -> str:
     """
-        Fact table
+        Dimension table
         :return:"""
     return """
     CREATE TABLE IF NOT EXISTS users (
@@ -33,7 +33,7 @@ def create_users() -> str:
 
 def create_songs() -> str:
     """
-            Fact table
+            Dimension table
             :return:"""
     return """
     CREATE TABLE IF NOT EXISTS songs (
@@ -48,7 +48,7 @@ def create_songs() -> str:
 
 def create_artists() -> str:
     """
-            Fact table
+            Dimension table
             :return:"""
     return """
     CREATE TABLE IF NOT EXISTS artists(
@@ -63,7 +63,7 @@ def create_artists() -> str:
 
 def create_time() -> str:
     """
-            Fact table
+            Dimension table
             :return:"""
     return """
     CREATE TABLE IF NOT EXISTS time( 
