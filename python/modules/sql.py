@@ -1,4 +1,7 @@
 def create_song_plays() -> str:
+    """
+    Dimension table
+    :return:"""
     return """
     CREATE TABLE IF NOT EXISTS song_plays(
     id  SERIAL PRIMARY KEY, 
@@ -14,6 +17,9 @@ def create_song_plays() -> str:
 
 
 def create_users() -> str:
+    """
+        Fact table
+        :return:"""
     return """
     CREATE TABLE IF NOT EXISTS users (
     id  SERIAL PRIMARY KEY, 
@@ -26,6 +32,9 @@ def create_users() -> str:
 
 
 def create_songs() -> str:
+    """
+            Fact table
+            :return:"""
     return """
     CREATE TABLE IF NOT EXISTS songs (
     id  SERIAL PRIMARY KEY, 
@@ -38,6 +47,9 @@ def create_songs() -> str:
 
 
 def create_artists() -> str:
+    """
+            Fact table
+            :return:"""
     return """
     CREATE TABLE IF NOT EXISTS artists(
     id  SERIAL PRIMARY KEY,
@@ -50,6 +62,9 @@ def create_artists() -> str:
 
 
 def create_time() -> str:
+    """
+            Fact table
+            :return:"""
     return """
     CREATE TABLE IF NOT EXISTS time( 
     id  SERIAL PRIMARY KEY,
