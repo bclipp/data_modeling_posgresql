@@ -41,6 +41,7 @@ And below is an example of what the data in a log file, 2018-11-12-events.json, 
 ```
 
 ### Star Schema
+[Python](https://github.com/bclipp/data_modeling_posgresql/blob/master/python/modules/sql.py)
 * Facts tables   
     * song_plays
 
