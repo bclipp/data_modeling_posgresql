@@ -47,7 +47,7 @@ class DatabaseManager:
             logging.error(error)
             self.conn.rollback()
 
-    def df_insert(self, data_frame: pd.DataFrame, table: str, conflict_id: str):
+    def df_insert(self, data_frame: pd.DataFrame, table: str, conflict_id: str = None):
 
         try:
             if not data_frame.empty:
@@ -56,11 +56,17 @@ class DatabaseManager:
                 values = "VALUES({})".format(
                     ",".join(["%s" for _ in data_frame_columns])
                 )
-                insert_stmt = "INSERT INTO {} ({}) {} ON CONFLICT ({}) DO NOTHING;" \
-                    .format(table,
-                            columns,
-                            values,
-                            conflict_id)
+                if conflict_id:
+                    insert_stmt = "INSERT INTO {} ({}) {} ON CONFLICT ({}) DO NOTHING;" \
+                        .format(table,
+                                columns,
+                                values,
+                                conflict_id)
+                else:
+                    insert_stmt = "INSERT INTO {} ({}) {};" \
+                        .format(table,
+                                columns,
+                                values)
                 psycopg2.extras.execute_batch(
                     self.cursor, insert_stmt, data_frame.values
                 )
