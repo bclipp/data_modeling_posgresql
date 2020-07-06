@@ -49,7 +49,7 @@ def create_songs() -> str:
 def create_artists() -> str:
     """
             Dimension table
-            :return:"""
+               :return:"""
     return """
     CREATE TABLE IF NOT EXISTS artists(
     id  SERIAL PRIMARY KEY,
