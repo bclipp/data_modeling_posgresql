@@ -57,18 +57,18 @@ class DatabaseManager:
                     ",".join(["%s" for _ in data_frame_columns])
                 )
                 if conflict_id:
-                    insert_stmt = "INSERT INTO {} ({}) {} ON CONFLICT ({}) DO NOTHING;" \
+                    insert_query = "INSERT INTO {} ({}) {} ON CONFLICT ({}) DO NOTHING;" \
                         .format(table,
                                 columns,
                                 values,
                                 conflict_id)
                 else:
-                    insert_stmt = "INSERT INTO {} ({}) {};" \
+                    insert_query = "INSERT INTO {} ({}) {};" \
                         .format(table,
                                 columns,
                                 values)
                 psycopg2.extras.execute_batch(
-                    self.cursor, insert_stmt, data_frame.values
+                    self.cursor, insert_query, data_frame.values
                 )
         except psycopg2.DatabaseError as error:
             logging.error(error)
