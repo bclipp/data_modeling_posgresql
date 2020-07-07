@@ -1,8 +1,10 @@
 import pandas as pd
-import modules.data_base as db
+import modules.database as db
 
 
-def process_log_data(data_frame: pd.DataFrame, config: dict):
+def process_log_data(file_path: str):
+    
+    data_frame = pd.read_json(file_path, lines=True)
     data_frame = data_frame[data_frame['page'] == "NextSong"]
     data_frame["ts"] = data_frame['ts'].astype({'ts': 'datetime64[ms]'})
     time_stamps: pd.Series = pd.Series(data_frame['ts'], index=data_frame.index)
@@ -22,4 +24,3 @@ def process_log_data(data_frame: pd.DataFrame, config: dict):
     database_manager.df_insert(time, "time")
     user = data_frame[['userId', 'firstName', 'lastName', 'gender', 'level']]
     database_manager.df_insert(user, "users")
-    # songplay
