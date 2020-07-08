@@ -2,37 +2,6 @@ import os
 import glob
 from typing import TypedDict  # type: ignore
 from typing import Callable, Optional  # type: ignore
-import pandas as pd
-from modules import log_data, song_data, multi
-
-
-def iterate_pagitths(file_paths: list):
-    for path in file_paths:
-        if path.find("log"):
-            process_files(config,
-                          True,
-                          log_data.process_log_data(),
-                          path["location"])
-        else:
-            process_files(config,
-                          True,
-                          song_data.process_song_data(),
-                          path["location"])
-
-
-def process_files(config: dict, function: Callable, file_path, par: bool = True):
-    files = get_files(file_path)
-    data_frame: pd.DataFrame = pd.DataFrame({"location": files})
-    data_frame: pd.DataFrame = data_frame.append(config, ignore_index=True)
-    files: list = data_frame.to_dict()
-    if par:
-        multi.concurrent_me(os.cpu_count(),
-                            function,
-                            files,
-                            False)
-    else:
-        for file in files:
-            function(file, config)
 
 
 def get_files(file_path):
@@ -58,11 +27,11 @@ def get_variables() -> ConfigVars:
         postgres_db = os.environ['POSTGRES_DB']
         postgres_user = os.environ['POSTGRES_USER']
         postgres_password = os.environ['POSTGRES_PASSWORD']
-        intergration_test = os.environ.get('INTERGRATION_TEST', default=None)
+        integration_test = os.environ.get('INTEGRATION_TEST', default=None)
     except KeyError:
         raise KeyError("Please verify that the needed env variables are set")
     return {"db_ip_address": db_ip_address,
             "postgres_db": postgres_db,
             "postgres_user": postgres_user,
             "postgres_password": postgres_password,
-            "intergration_test": intergration_test}
+            "intergration_test": integration_test}
