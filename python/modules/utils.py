@@ -6,7 +6,7 @@ import pandas as pd
 from modules import log_data, song_data, multi
 
 
-def iterate_paths(file_paths: list):
+def iterate_pagitths(file_paths: list):
     for path in file_paths:
         if path.find("log"):
             process_files(config,
@@ -20,13 +20,16 @@ def iterate_paths(file_paths: list):
                           path["location"])
 
 
-def process_files(config: dict, function: Callable, file_path, parallel: bool = True):
+def process_files(config: dict, function: Callable, file_path, par: bool = True):
     files = get_files(file_path)
     data_frame: pd.DataFrame = pd.DataFrame({"location": files})
     data_frame: pd.DataFrame = data_frame.append(config, ignore_index=True)
     files: list = data_frame.to_dict()
-    if parallel():
-        multi.concurrent_me(os.cpu_count(), function, files)
+    if par:
+        multi.concurrent_me(os.cpu_count(),
+                            function,
+                            files,
+                            False)
     else:
         for file in files:
             function(file, config)
