@@ -3,7 +3,7 @@ import modules.database as db
 
 
 def process_log_data(file_path: str):
-    
+
     data_frame = pd.read_json(file_path, lines=True)
     data_frame = data_frame[data_frame['page'] == "NextSong"]
     data_frame["ts"] = data_frame['ts'].astype({'ts': 'datetime64[ms]'})
