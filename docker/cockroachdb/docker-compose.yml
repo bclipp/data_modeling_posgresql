@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  cockroachDB1:
+      image: cockroachdb/cockroach:latest
+      volumes:
+         - ./database/cockroachDB1:/cockroach/cockroach-data
+      command: start --insecure
+      ports:
+        - 26257:26257
+        - 8080:8080
+  cockroachDB2:
+      image: cockroachdb/cockroach:latest
+      volumes:
+         - ./database/cockroachDB2:/cockroach/cockroach-data
+      command: start --insecure --join=cockroachDB1
+  cockroachDB3:
+      image: cockroachdb/cockroach:latest
+      volumes:
+         - ./database/cockroachDB3:/cockroach/cockroach-data
+      command: start --insecure --join=cockroachDB1
