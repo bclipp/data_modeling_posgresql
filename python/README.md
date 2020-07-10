@@ -2,11 +2,11 @@
 
 ## Connecting to Database UI
 
-*URL*: http://localhost:8080/  
-*SYSTEM*: projectetl
-*USER*: projectetl
-*PASSWORD*: projectetl 
-*DB*: projectetl
+*URL*: http://localhost:8080/    
+*SYSTEM*: projectetl  
+*USER*: projectetl  
+*PASSWORD*: projectetl   
+*DB*: projectetl  
 
 ## Running the app
 
