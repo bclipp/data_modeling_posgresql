@@ -24,9 +24,13 @@ def process_files(config: dict,
                   file_path: str):
     par: bool = config["parallel"]
     files = utils.get_files(file_path)
-    data_frame: pd.DataFrame = pd.DataFrame({"location": files})
-    data_frame: pd.DataFrame = data_frame.append(config, ignore_index=True)
-    files: list = data_frame.to_dict()
+    files_data_frame: pd.DataFrame = pd.DataFrame({"location": files})
+    config_data_frame = pd.DataFrame([config], columns=config.keys())
+    files_data_frame['key'] = 0
+    config_data_frame['key'] = 0
+
+    data_frame: pd.DataFrame = files_data_frame.merge(config_data_frame, how='outer')
+    files: list = data_frame.T.to_dict()
     if par:
         multi.concurrent_me(os.cpu_count(),
                             function,

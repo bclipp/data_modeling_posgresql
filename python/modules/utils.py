@@ -28,7 +28,7 @@ def get_variables() -> ConfigVars:
         postgres_user = os.environ['POSTGRES_USER']
         postgres_password = os.environ['POSTGRES_PASSWORD']
         integration_test = os.environ.get('INTEGRATION_TEST', default=None)
-        init = os.environ["INIT"]
+        init_db = os.environ["INIT_DB"]
     except KeyError:
         raise KeyError("Please verify that the needed env variables are set")
     return {"db_ip_address": db_ip_address,
@@ -36,4 +36,4 @@ def get_variables() -> ConfigVars:
             "postgres_user": postgres_user,
             "postgres_password": postgres_password,
             "integration_test": integration_test,
-            "init": init}
+            "init_db": init_db}
