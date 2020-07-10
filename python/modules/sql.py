@@ -56,7 +56,7 @@ def create_artists() -> str:
     artist_id text,
     name text NOT NULL, 
     location text, 
-    lattitude float, 
+    latitude float, 
     longitude float);
 """
 
