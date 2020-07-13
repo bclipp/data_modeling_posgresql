@@ -2,11 +2,11 @@
 
 ## Connecting to Database UI
 
-*URL*: http://localhost:8080/  
-*SYSTEM*: projectetl
-*USER*: projectetl
-*PASSWORD*: projectetl 
-*DB*: projectetl
+*URL*: http://localhost:8080/    
+*SYSTEM*: projectetl  
+*USER*: projectetl  
+*PASSWORD*: projectetl   
+*DB*: projectetl  
 
 ## Running the app
 
@@ -17,6 +17,7 @@ export POSTGRES_DB=projectetl
 export POSTGRES_USER=projectetl  
 export POSTGRES_PASSWORD=projectetl  
 export DB_IP_ADDRESS=127.0.0.1  
+export INIT_DB=False
 # set if you want to run intergration tests
 # export INTERGRATION_TEST=True
 ```
