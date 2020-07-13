@@ -1,5 +1,5 @@
 import pandas as pd
-import modules.database as db
+import easy-database as db
 
 
 def process_log_data(file_path: str):

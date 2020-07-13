@@ -7,16 +7,14 @@ from modules import log_data, song_data, multi, utils
 def iterate_paths(file_paths: list,
                   config: dict):
     for path in file_paths:
-        if path.find("log"):
+        if path.find("log") != -1:
             process_files(config,
-                          True,
-                          log_data.process_log_data(path),
+                          log_data.process_log_data(),
                           path["location"])
         else:
             process_files(config,
-                          True,
-                          song_data.process_song_data(path),
-                          path["location"])
+                          song_data.process_song_data(),
+                          path)
 
 
 def process_files(config: dict,
